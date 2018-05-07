@@ -202,20 +202,24 @@ var Front = (function() {
     var onOmniQuery;
     self.openOmniquery = function(args) {
         onOmniQuery = function(query) {
-            httpRequest({
-                'url': (typeof(args.url) === "function") ? args.url(query) : args.url + query
-            }, function(res) {
-                var words = args.parseResult(res);
+            if (args.url) {
+                httpRequest({
+                    'url': (typeof(args.url) === "function") ? args.url(query) : args.url + query
+                }, function(res) {
+                    var words = args.parseResult(res);
 
-                if (window.navigator.userAgent.indexOf("Firefox") === -1) {
-                    words.push(Visual.findSentenceOf(query));
-                }
+                    if (window.navigator.userAgent.indexOf("Firefox") === -1) {
+                        words.push(Visual.findSentenceOf(query));
+                    }
 
-                frontendCommand({
-                    action: 'updateOmnibarResult',
-                    words: words
+                    frontendCommand({
+                        action: 'updateOmnibarResult',
+                        words: words
+                    });
                 });
-            });
+            } else {
+                args.parseResult(query);
+            }
         };
         self.openOmnibar(({type: "OmniQuery", extra: args.query, style: args.style}));
     };
