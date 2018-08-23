@@ -532,8 +532,8 @@ var Omnibar = (function() {
 
     self.openFocused = function() {
         var ret = false, fi = self.resultsDiv.querySelector('li.focused');
-        var url = fi.url;
-        if (url === undefined) {
+        var url = fi && fi.url;
+        if (url === undefined || url === null) {
             url = self.input.value;
             if (url.indexOf(':') === -1) {
                 url = SearchEngine.aliases[runtime.conf.defaultSearchEngine].url + url;
@@ -547,7 +547,7 @@ var Omnibar = (function() {
             }, function(ret) {
             });
         } else {
-            var type = "", uid = fi.uid;
+            var type = "", uid = fi && fi.uid;
             if (uid) {
                 type = uid[0], uid = uid.substr(1);
             }

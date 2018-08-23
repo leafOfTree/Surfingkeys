@@ -484,7 +484,7 @@ var Normal = (function() {
         };
     }
 
-    // set scrollIndex to the highest node
+    // set scrollIndex to the widest node
     function initScrollIndex() {
         if (!scrollNodes || scrollNodes.length === 0) {
             document.documentElement.style.overflow = "visible";
@@ -494,13 +494,13 @@ var Normal = (function() {
 
             if (scrollNodes.length > 1 && scrollNodes[0] !== document.scrollingElement) {
                 // if the first scrolling element is not the document itself
-                // find the highest one
-                var maxHeight = 0;
+                // find the widest one
+                var maxWidth = 0;
                 scrollNodes.forEach(function(n, i) {
-                    var h = n.offsetHeight;
-                    if (h > maxHeight) {
+                    var w = n.offsetWidth;
+                    if (w > maxWidth) {
                         scrollIndex = i;
-                        maxHeight = h;
+                        maxWidth = w;
                     }
                 });
             }
