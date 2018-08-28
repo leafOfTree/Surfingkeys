@@ -486,7 +486,7 @@ var Normal = (function() {
 
     // set scrollIndex to the widest node
     function initScrollIndex() {
-        if (!scrollNodes || scrollNodes.length === 0) {
+        if (!scrollNodes || scrollNodes.length === 0 || !document.contains(scrollNodes[0])) {
             document.documentElement.style.overflow = "visible";
             document.body.style.overflow = "visible";
             scrollNodes = getScrollableElements(100, 1.1);
