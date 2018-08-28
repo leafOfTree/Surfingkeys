@@ -1,87 +1,66 @@
 {
-    "manifest_version": 2,
-    "name": "Surfingkeys-HackVersion",
-    "short_name": "Map your keys for web surfing",
-    "version": "0.9.33",
-    "description": "Expand your browser with javascript and keyboard.",
-    "icons": {
-        "16": "icons/16.png",
-        "48": "icons/48.png",
-        "128": "icons/128.png"
-    },
-    "commands": {
-        "restartext": {
-            "description": "Restart this extenstion."
-        },
-        "previousTab": {
-            "description": "Go to the previous tab."
-        },
-        "nextTab": {
-            "description": "Go to the next tab."
-        },
-        "closeTab": {
-            "description": "Close the current tab."
-        },
-        "proxyThis": {
-            "description": "Toggle current site in autoproxy_hosts."
-        }
-    },
-    "browser_action": {
-        "default_icon": {
-            "16": "icons/16.png",
-            "48": "icons/48.png"
-        },
-        "default_title": "Surfingkeys-HackVersion",
-        "default_popup": "pages/popup.html"
-    },
-    "author": "brook hong",
-    "permissions": [
-        "webRequest",
-        "proxy",
-        "<all_urls>",
-        "tabs",
-        "history",
-        "bookmarks",
-        "storage",
-        "sessions",
-        "downloads",
-        "topSites",
-        "clipboardRead",
-        "clipboardWrite"
-    ],
-    "background": {
-        "scripts": [
-            "background.js"
-        ]
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "match_about_blank": true,
-            "js": [
-                "content_scripts/common_content.min.js",
-                "content_scripts/front.js",
-                "content_scripts/content_scripts.js",
-                "content_scripts/top.js",
-                "pages/default.js"
-            ],
-            "css": [
-                "content_scripts/content_scripts.css"
-            ],
-            "run_at": "document_start",
-            "all_frames": true
-        }
-    ],
-    "web_accessible_resources": [
-        "pages/default.js",
-        "pages/emoji.tsv",
-        "pages/l10n.json",
-        "pages/frontend.html",
-        "pages/pdf_viewer.html",
-        "pages/shadow.css",
-        "pages/default.css"
-    ],
-    "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
+  "manifest_version": 2,
+  "name": "Surfingkeys-HackVersion",
+  "short_name": "Map your keys for web surfing",
+  "version": "0.9.37",
+  "description": "Expand your browser with javascript and keyboard.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "commands": {
+    "restartext": { "description": "Restart this extenstion." },
+    "previousTab": { "description": "Go to the previous tab." },
+    "nextTab": { "description": "Go to the next tab." },
+    "closeTab": { "description": "Close the current tab." },
+    "proxyThis": { "description": "Toggle current site in autoproxy_hosts." }
+  },
+  "browser_action": {
+    "default_icon": { "16": "icons/16.png", "48": "icons/48.png" },
+    "default_title": "Surfingkeys-HackVersion",
+    "default_popup": "pages/popup.html"
+  },
+  "author": "brook hong",
+  "permissions": [
+    "webRequest",
+    "proxy",
+    "<all_urls>",
+    "tabs",
+    "history",
+    "bookmarks",
+    "storage",
+    "sessions",
+    "downloads",
+    "topSites",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background": { "scripts": ["background.js"] },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "match_about_blank": true,
+      "js": [
+        "content_scripts/common_content.min.js",
+        "content_scripts/front.js",
+        "content_scripts/content_scripts.js",
+        "content_scripts/top.js",
+        "pages/default.js"
+      ],
+      "css": ["content_scripts/content_scripts.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "pages/default.js",
+    "pages/emoji.tsv",
+    "pages/l10n.json",
+    "pages/frontend.html",
+    "pages/pdf_viewer.html",
+    "pages/shadow.css",
+    "pages/default.css"
+  ],
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
